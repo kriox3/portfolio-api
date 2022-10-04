@@ -40,7 +40,7 @@ public class PortfolioDtoController {
     @Autowired
     private IRedesService interRedes;
 
-    @GetMapping("/portfolio/datos/")
+    @GetMapping("/portfolio/datos")
     @ResponseBody
     public PortfolioDTO devolverCliente() {
         
