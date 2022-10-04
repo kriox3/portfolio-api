@@ -17,8 +17,8 @@ import ga.kriox3.ApiPortfolio.service.IPersonaService;
 import ga.kriox3.ApiPortfolio.service.IRedesService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,6 +41,7 @@ public class PortfolioDtoController {
     private IRedesService interRedes;
 
     @GetMapping("/portfolio/datos")
+    @CrossOrigin(origins = "http://localhost:8080")
     @ResponseBody
     public PortfolioDTO devolverCliente() {
         
