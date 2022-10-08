@@ -41,7 +41,7 @@ public class PortfolioDtoController {
     private IRedesService interRedes;
 
     @GetMapping("/portfolio/datos")
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseBody
     public PortfolioDTO devolverCliente() {
         
