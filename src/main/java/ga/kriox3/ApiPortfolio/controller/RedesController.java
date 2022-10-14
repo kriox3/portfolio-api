@@ -1,6 +1,7 @@
 package ga.kriox3.ApiPortfolio.controller;
 
 import ga.kriox3.ApiPortfolio.model.redes;
+import ga.kriox3.ApiPortfolio.model.red;
 import ga.kriox3.ApiPortfolio.service.IRedesService;
 import ga.kriox3.ApiPortfolio.controller.PersonaController;
 import java.util.List;
@@ -46,8 +47,10 @@ public class RedesController {
 
     @PutMapping("redeses/editar/{id}")
     public redes editRedes(@PathVariable Long id,
+            @RequestParam("red") red nuevaRed,
             @RequestParam("accesoUrl") String nuevoAcceso) {
         redes nets = interRedes.findRedes(id);
+        nets.setRed(nuevaRed);
         nets.setAccesoUrl(nuevoAcceso);
         
 
