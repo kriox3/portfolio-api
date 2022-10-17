@@ -20,7 +20,7 @@ public class educacion {
     private Long id;
     private String establecimiento;
     private String titulo;
-    private Date fecha;
+    private String fecha;
     private Boolean completado;
     
     @ManyToOne()

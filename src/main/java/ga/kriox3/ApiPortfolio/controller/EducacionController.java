@@ -5,6 +5,7 @@ import ga.kriox3.ApiPortfolio.service.IEducacionService;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 public class EducacionController {
 
     @Autowired
     private IEducacionService interEducacion;
+    
+    @Autowired
+    private PersonaController persController;
 
     @GetMapping("educaciones/traer")
     public List<educacion> getEducacion() {
@@ -41,10 +46,10 @@ public class EducacionController {
     public educacion editEducacion(@PathVariable Long id,
             @RequestParam("establecimiento") String nuevoEstablecimiento,
             @RequestParam("titulo") String nuevoTitulo,
-            @RequestParam("fecha") Date nuevaFecha,
+            @RequestParam("fecha") String nuevaFecha,
             @RequestParam("completado") Boolean nuevaCompletado) {
         educacion educ = interEducacion.findEducacion(id);
-
+        educ.setPersona(persController.devolverCliente());
         educ.setEstablecimiento(nuevoEstablecimiento);
         educ.setTitulo(nuevoTitulo);
         educ.setFecha(nuevaFecha);
