@@ -32,6 +32,7 @@ public class EducacionController {
 
     @PostMapping("educaciones/crear")
     public String createEducacion(@RequestBody educacion educ) {
+        educ.setPersona(persController.devolverCliente());
         interEducacion.saveEducacion(educ);
         return "La educacion fue creada correctamente";
     }

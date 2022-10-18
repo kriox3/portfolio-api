@@ -61,7 +61,7 @@ public class PersonaController {
         interPersona.savePersona(perso);
 
         return perso;
-    }
+    }   
     
     private Long consultarPrimerId(){
         Long id;
