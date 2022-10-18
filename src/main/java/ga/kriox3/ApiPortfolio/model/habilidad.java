@@ -17,7 +17,7 @@ public class habilidad {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
-    private String habilidad;
+    private String nombre;
     private String porcentaje;
     
     @ManyToOne()

@@ -1,18 +1,10 @@
 package ga.kriox3.ApiPortfolio.controller;
 
 import ga.kriox3.ApiPortfolio.dto.PortfolioDTO;
-import ga.kriox3.ApiPortfolio.model.certificacion;
-import ga.kriox3.ApiPortfolio.model.educacion;
 import ga.kriox3.ApiPortfolio.model.experiencia;
-import ga.kriox3.ApiPortfolio.model.habilidad;
-import ga.kriox3.ApiPortfolio.model.proyecto;
 import ga.kriox3.ApiPortfolio.model.persona;
 import ga.kriox3.ApiPortfolio.model.redes;
-import ga.kriox3.ApiPortfolio.service.ICertificacionService;
-import ga.kriox3.ApiPortfolio.service.IEducacionService;
 import ga.kriox3.ApiPortfolio.service.IExperienciaService;
-import ga.kriox3.ApiPortfolio.service.IHabilidadService;
-import ga.kriox3.ApiPortfolio.service.IProyectoService;
 import ga.kriox3.ApiPortfolio.service.IPersonaService;
 import ga.kriox3.ApiPortfolio.service.IRedesService;
 import java.util.List;
@@ -26,15 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PortfolioDtoController {
 
     @Autowired
-    private ICertificacionService interCertificacion;
-    @Autowired
-    private IEducacionService interEducacion;
-    @Autowired
     private IExperienciaService interExperiencia;
-    @Autowired
-    private IHabilidadService interHabilidad;
-    @Autowired
-    private IProyectoService interProyecto;
     @Autowired
     private IPersonaService interPersona;
     @Autowired
@@ -52,12 +36,7 @@ public class PortfolioDtoController {
         id = personas.get(0).getId();
         
         System.out.println(id);
-
-        List<certificacion> cert = interCertificacion.getCertificacion();
-        List<educacion> educ = interEducacion.getEducacion();
         List<experiencia> exp = interExperiencia.getExperiencia();
-        List<habilidad> hab = interHabilidad.getHabilidad();
-        List<proyecto> proj = interProyecto.getProyecto();
         persona pers = interPersona.findPersona(id);
         List<redes> nets = interRedes.getRedes();
 
@@ -76,11 +55,6 @@ public class PortfolioDtoController {
         port.setFoto_persona(pers.getFoto());
         port.setLocalidad_persona(pers.getLocalidad());
         port.setInfo_persona(pers.getInfo());
-        port.setCertificaciones(cert);
-        port.setEducaciones(educ);
-        port.setExperiencias(exp);
-        port.setHabilidades(hab);
-        port.setProyectos(proj);
         port.setRedes(nets);
 
         return port;
