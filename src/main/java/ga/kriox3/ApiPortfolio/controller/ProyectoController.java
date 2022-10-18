@@ -28,7 +28,7 @@ public class ProyectoController {
     @PostMapping("proyectoes/crear")
     public String createProyecto(@RequestBody proyecto proj) {
         interProyecto.saveProyecto(proj);
-        return "El proyecto fue creado correctamente";
+        return "El proyecto fue agregado correctamente";
     }
 
     @DeleteMapping("proyectoes/borrar/{id}")

@@ -34,7 +34,7 @@ public class EducacionController {
     public String createEducacion(@RequestBody educacion educ) {
         educ.setPersona(persController.devolverCliente());
         interEducacion.saveEducacion(educ);
-        return "La educacion fue creada correctamente";
+        return "La educacion fue agregada correctamente";
     }
 
     @DeleteMapping("educaciones/borrar/{id}")

@@ -27,7 +27,7 @@ public class HabilidadController {
     @PostMapping("habilidades/crear")
     public String createHabilidad(@RequestBody habilidad hab) {
         interHabilidad.saveHabilidad(hab);
-        return "La habilidad fue creada correctamente";
+        return "La habilidad fue agregada correctamente";
     }
 
     @DeleteMapping("habilidades/borrar/{id}")

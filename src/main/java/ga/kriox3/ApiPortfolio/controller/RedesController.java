@@ -32,11 +32,9 @@ public class RedesController {
 
     @PostMapping("redeses/crear")
     public String createRedes(@RequestBody redes nets) {
-        if(nets.getPersona() == null){
-            nets.setPersona(persController.devolverCliente());
-        }
+        nets.setPersona(persController.devolverCliente());
         interRedes.saveRedes(nets);
-        return "La red fue creada correctamente";
+        return "La red fue agregada correctamente";
     }
 
     @DeleteMapping("redeses/borrar/{id}")
@@ -50,6 +48,7 @@ public class RedesController {
             @RequestParam("red") red nuevaRed,
             @RequestParam("accesoUrl") String nuevoAcceso) {
         redes nets = interRedes.findRedes(id);
+        nets.setPersona(persController.devolverCliente());
         nets.setRed(nuevaRed);
         nets.setAccesoUrl(nuevoAcceso);
         

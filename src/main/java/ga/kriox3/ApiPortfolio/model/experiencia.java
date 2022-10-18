@@ -20,8 +20,8 @@ public class experiencia {
     private Long id;
     private String establecimiento;
     private String ocupacion;
-    private Date desde;
-    private Date hasta;
+    private String desde;
+    private String hasta;
     private Boolean actual;
     
     @ManyToOne()

@@ -2,7 +2,6 @@ package ga.kriox3.ApiPortfolio.controller;
 
 import ga.kriox3.ApiPortfolio.model.certificacion;
 import ga.kriox3.ApiPortfolio.service.ICertificacionService;
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,7 +33,7 @@ public class CertificacionController {
     public String createCertificacion(@RequestBody certificacion cert) {
         cert.setPersona(persController.devolverCliente());
         interCertificacion.saveCertificacion(cert);
-        return "La certificacion fue creada correctamente";
+        return "La certificacion fue agregada correctamente";
     }
 
     @DeleteMapping("certificaciones/borrar/{id}")
