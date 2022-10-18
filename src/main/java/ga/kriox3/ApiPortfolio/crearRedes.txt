@@ -1,0 +1,1 @@
+INSERT INTO red(`id`, `red`) VALUES ('1', 'Facebook'), ('2', 'Instagram'), ('3', 'Telegram'), ('4', 'Whatsapp'), ('5', 'Youtube'), ('6', 'Twitter'), ('7', 'Coffee'), ('8', 'LinkedIn'), ('9', 'Web');

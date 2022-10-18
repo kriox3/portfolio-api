@@ -1,0 +1,7 @@
+sacar redes y dejarla sola
+eliminar portfolio
+poner a blanco las letras de los titulos
+agregar un spinner cuando carga las modificaciones/cargas
+actualizar footer y que se quede fijo
+
+crear administrador de usuarios con clave maestra

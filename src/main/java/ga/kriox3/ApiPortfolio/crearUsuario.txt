@@ -1,0 +1,1 @@
+INSERT INTO persona(`id`, `apellido`, `foto`, `info`, `localidad`, `nombre`) VALUES ('1', 'Cuervo', 'https://avatars.githubusercontent.com/u/85207948?v=4', 'desarrollador en tsid.ga', 'Buenos Aires, La Plata', 'Mauro Ezequiel');
