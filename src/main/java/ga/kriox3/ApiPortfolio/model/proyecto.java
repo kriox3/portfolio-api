@@ -20,7 +20,7 @@ public class proyecto {
     private Long id;
     private String nombre;
     private String informacion;
-    private Date fecha;
+    private String fecha;
     private String accesoUrl;
 
     @ManyToOne()
