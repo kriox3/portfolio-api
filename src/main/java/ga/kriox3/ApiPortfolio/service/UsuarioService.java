@@ -2,6 +2,7 @@ package ga.kriox3.ApiPortfolio.service;
 
 import ga.kriox3.ApiPortfolio.entity.Usuario;
 import ga.kriox3.ApiPortfolio.repository.UsuarioRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,5 +30,14 @@ public class UsuarioService {
 
     public void guardar(Usuario usuario) {
         usuarioRepository.save(usuario);
+    }
+    
+    public void deleteUsuario(Long id){
+        usuarioRepository.deleteById(id);
+    }
+    
+    public List<Usuario> getUsuarios(){
+        List<Usuario> listaUsuario = usuarioRepository.findAll();
+        return listaUsuario;
     }
 }

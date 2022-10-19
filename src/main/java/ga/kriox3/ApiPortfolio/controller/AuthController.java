@@ -28,7 +28,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -91,5 +95,16 @@ public class AuthController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         JwtDTO jwtDTO = new JwtDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
         return new ResponseEntity<JwtDTO>(jwtDTO, HttpStatus.OK);
+    }
+    
+    @DeleteMapping("/borrar/{id}")
+    public String deleteCertificacion(@PathVariable Long id) {
+        usuarioService.deleteUsuario(id);
+        return "Usuario eliminado correctamente";
+    }
+    
+    @GetMapping("/traer")
+    public List<Usuario> getUsuarios() {
+        return usuarioService.getUsuarios();
     }
 }
