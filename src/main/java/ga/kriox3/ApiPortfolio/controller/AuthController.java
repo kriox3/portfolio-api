@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
@@ -54,18 +53,21 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/nuevo")
+    @PostMapping("/vive")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
+        
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("campos vacíos o email inválido"), HttpStatus.BAD_REQUEST);
         if(usuarioService.existePorNombre(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity(new Mensaje("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         if(usuarioService.existePorEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity(new Mensaje("ese email ya existe"), HttpStatus.BAD_REQUEST);
+        
         Usuario usuario =
                 new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(),
                         passwordEncoder.encode(nuevoUsuario.getPassword()));
         Set<String> rolesStr = nuevoUsuario.getRoles();
+        
         Set<Rol> roles = new HashSet<>();
         for (String rol : rolesStr) {
             switch (rol) {
@@ -97,13 +99,13 @@ public class AuthController {
         return new ResponseEntity<JwtDTO>(jwtDTO, HttpStatus.OK);
     }
     
-    @DeleteMapping("/borrar/{id}")
+    @DeleteMapping("/muere/{id}")
     public String deleteCertificacion(@PathVariable Long id) {
         usuarioService.deleteUsuario(id);
         return "Usuario eliminado correctamente";
     }
     
-    @GetMapping("/traer")
+    @GetMapping("/quienes")
     public List<Usuario> getUsuarios() {
         return usuarioService.getUsuarios();
     }
